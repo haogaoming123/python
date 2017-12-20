@@ -116,7 +116,7 @@ def my_abs(x):
 		return x
 print(my_abs(-99))
 
-#函数返回多个值
+##函数返回多个值
 import math #导入包
 def move(x, y, step, angle=0):
 	nx = x + step * math.cos(angle)
@@ -125,5 +125,52 @@ def move(x, y, step, angle=0):
 nx, ny = move(100, 100, 60, math.pi / 6)
 print(nx,ny)
 
+##默认参数
+def add_end(L=None,n=2):
+	if L is None:
+		L = []
+	L.append(n)
+	L.append('end')
+	return L
+print(add_end())
+print(add_end(n=3))
+
+##可变参数
+def calc(*numbers):
+	sum = 0
+	for n in numbers:
+		sum = sum + n * n 
+	return sum
+print('可变参数：',calc(1,2,3,4))
+print('可变参数：',calc())
+
+##关键字参数
+def person(name, age, **kw):
+	#说明：**kw 将后边的传入参数自动组装为一个字典tuple
+	print('name:',name,'age:',age,'other:',kw)
+person('小马','18',job='IT')
+yuanzu3 = {'city':'beijing','job':'IT'}
+person('小马','18',**yuanzu3) ## **yuanzu表示把元祖所有的key->value用关键字传入**KW
+
+##命名关键字参数
+print('--省略---')
+
+##递归函数
+def fact1(n):
+	if n == 1:
+		return 1
+	return n * fact1(n-1)
+print(fact1(10))
+
+##尾递归优化：防止递归导致栈溢出
+def fact(n):
+    return fact_iter(n, 1)
+
+def fact_iter(num, product):
+    if num == 1:
+        return product
+    return fact_iter(num - 1, num * product)
+print(fact(10))
+#说明：Python解释器也没有做优化，所以，即使把上面的fact(n)函数改成尾递归方式，也会导致栈溢出。
 
 
