@@ -91,7 +91,39 @@ elif bmi < 28:
 for name in yuanzu2:
 	print('元素：',name)
 
+sum = 0
+for x in range(4):
+	print(x)
+	sum += x
+print('总和为：',sum)
 
+##字典
+dic = {'key1':95,'key2':93,'key3':94}
+for key in dic:
+	print(key)
+
+a = 'abc'
+a = a.replace('a','A')
+print('a=',a)
+
+##定义函数：#数据类型检查函数：isinstance()#
+def my_abs(x):	
+	if not isinstance(x, (int, float)):
+		raise TypeError('不是整型或浮点型数字，阻断后续程序的执行')
+	if x < 0:
+		return -x
+	else:
+		return x
+print(my_abs(-99))
+
+#函数返回多个值
+import math #导入包
+def move(x, y, step, angle=0):
+	nx = x + step * math.cos(angle)
+	ny = y - step * math.sin(angle)
+	return nx, ny
+nx, ny = move(100, 100, 60, math.pi / 6)
+print(nx,ny)
 
 
 
