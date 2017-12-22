@@ -101,6 +101,10 @@ print('总和为：',sum)
 dic = {'key1':95,'key2':93,'key3':94}
 for key in dic:
 	print(key)
+for value in dic.values():
+	print(value)
+for key,value in dic.items():
+	print(key,'=>',value)
 
 a = 'abc'
 a = a.replace('a','A')
