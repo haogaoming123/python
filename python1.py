@@ -192,4 +192,43 @@ def move(n, a, b, c):
 if __name__ == '__main__':
     move(3, 'A', 'B', 'C')
 
+##迭代，enumerate函数把数组变为索引-元素
+for x,val in enumerate([1,2,3,4,5]):
+	print('索引',x,'==>',val)
+
+
+##查找最大值和最小值
+def findMinAndMax(L):
+	if len(L) == 0:
+		return (None,None)
+	min = L[0]   #最小值
+	max = L[0]   #最大值
+	for x in L:
+		if x >= max:
+			max = x
+		if x <= min:
+			min = x
+	return (min,max)
+
+if findMinAndMax([]) != (None, None):
+    print('测试失败!')
+elif findMinAndMax([7]) != (7, 7):
+    print('测试失败!')
+elif findMinAndMax([7, 1]) != (1, 7):
+    print('测试失败!')
+elif findMinAndMax([7, 1, 3, 9, 5]) != (1, 9):
+    print('测试失败!')
+else:
+    print('测试成功!')
+		
+
+##列表生产器
+import os
+array = [d for d in os.listdir('.')] # os.listdir可以列出文件和目录
+print(array)
+
+d = {'x':'A','y':'B','z':'C'}
+arrayK = [k+'==>'+v for k,v in d.items()]
+print(arrayK)
+
 
