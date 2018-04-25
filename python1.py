@@ -232,3 +232,33 @@ arrayK = [k+'==>'+v for k,v in d.items()]
 print(arrayK)
 
 
+##map(f,Iterator)函数:第一参数为函数，第二参数为可循环的参数
+def fff(x):
+	return x * x
+result = map(fff,[1,2,3,4,5,6,7,8,9])
+print('result:',list(result))  ##list()函数可以序列化map返回的值
+
+##reduce函数，将一次的计算结果序列化到下一次继续计算
+from functools import reduce 
+def add(x , y ):
+	return x + y
+reduceResult = reduce(add,[1,3,5,7,9])
+print('reduce的结果：',reduceResult)
+
+#sorted函数:
+#key:根据key函数返回结果排序
+#reverse=True：反向排序
+sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower, reverse=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
